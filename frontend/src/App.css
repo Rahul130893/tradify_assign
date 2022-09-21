@@ -7,6 +7,108 @@
   pointer-events: none;
 }
 
+.nav{
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: sans-serif;
+  padding: 10px;
+  background-color: rgb(192, 235, 170);
+
+}
+
+.box{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8%;
+   border-radius: 10px;
+
+}
+.smallcard{
+  /* border: 1px solid black; */
+width: 300px;
+margin-top: 50px;
+  font-family: sans-serif;
+padding: 10px;
+background-color: rgb(192, 235, 170);
+ border-radius: 10px;
+}
+
+.smallbox{
+  width: 70%;
+  /* border: 1px solid green; */
+  margin: auto;
+  text-align: left;
+  background-color: rgb(159, 162, 158);
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+
+}
+
+.jobsDetails{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 40%;
+  height: 450px;
+  
+  margin: auto;
+  margin-top: 60px;
+}
+.jobsmalldiv{
+  /* border: 1px solid red; */
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  color: #525357;
+  display: flex;
+  justify-content: space-between;
+ gap: 20%;
+  text-align: left;
+}
+
+.applybtn{
+  margin-top: 20px;
+  width: 50%;
+  height: 50px;
+  background-color: #525357;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.registerBox{
+ display: flex;
+
+ flex-direction: column;
+ width: 30%;
+ margin: auto;
+ text-align: left;
+ padding: 25px;
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.registerBox input{
+  width: 90%;
+  margin-bottom: 30px;
+  height: 35px;
+}
+
+.submit{
+  width: 100%;
+  border: none;
+ font-size: 23px;
+  width: 55%;
+  background-color: #61dafb;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
