@@ -15,6 +15,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 app.use(cors())
+app.use(express.json());
 
 app.use("/users", userController);
 app.use("/jobs", jobController)
