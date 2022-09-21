@@ -45,7 +45,7 @@ export const Register = () => {
 
   return (
     <div>
-      <h2>Signup page</h2>
+      <h2>Registration  page</h2>
       <div>
         <form onSubmit={handlesubmit} className="registerBox">
           <div>
