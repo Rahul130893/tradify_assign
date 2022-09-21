@@ -1,26 +1,44 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const userSchema = new mongoose.Schema(
-  {
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-  },
-  {
-    timestamps: true,
-    versionKey: false,
-  }
-);
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
-userSchema.pre("save", function (next) {
-  const hash = bcrypt.hashSync(this.password, 8);
-  this.password = hash;
-  return next();
-});
+const verifyToken = (token) => {
+  return new Promise((resolve, reject) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+      if (err) return reject(err);
 
-userSchema.methods.checkPassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
+      return resolve(decoded);
+    });
+  });
 };
 
-const User = mongoose.model("user", userSchema);
+const authenticate = async (req, res, next) => {
+  if (!req.headers.authorization)
+    return res
+      .status(400)
+      .send({ message: "Authorization token not found or incorrect" });
 
-module.exports = User;
+  if (!req.headers.authorization.startsWith("Bearer "))
+    return res
+      .status(400)
+      .send({ message: "Authorization token not found or incorrect" });
+
+  const token = req.headers.authorization.trim().split(" ")[1];
+
+  let decoded;
+  try {
+    decoded = await verifyToken(token);
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(400)
+      .send({ message: "Authorization token not found or incorrect" });
+  }
+
+  console.log(decoded);
+
+  req.user = decoded.user;
+
+  return next();
+};
+
+module.exports = authenticate;

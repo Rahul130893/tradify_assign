@@ -5,7 +5,7 @@ const connect = require("./configs/db")
 
 const userController = require("./controllers/user.controller");
 const jobController =require("./controllers/job.controller")
-
+const applicationController= require("./controllers/application.controller")
 const { register, login } = require("./controllers/auth.controller")
 
 const app = express()
@@ -19,6 +19,8 @@ app.use(express.json());
 
 app.use("/users", userController);
 app.use("/jobs", jobController)
+app.use("/applications", applicationController)
+
 
 app.post("/register", register);
 
