@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 //role, company, location, description
-const jobSchema = mongoose.Schema(
+const jobSchema =new mongoose.Schema(
   {
     role: { type: String, required: true },
     company: { type: String, required: true },
@@ -13,6 +13,4 @@ const jobSchema = mongoose.Schema(
   }
 );
 
-const Job = mongoose.model("jobs", jobSchema)
-
-module.exports= Job
+module.exports = mongoose.model("job", jobSchema);

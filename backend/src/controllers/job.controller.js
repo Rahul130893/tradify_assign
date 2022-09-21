@@ -29,7 +29,8 @@ router.get("/:id", async (req, res) => {
 //posting a job
 router.post("/", async (req, res) => {
   try {
-    const job = await Job.create(req.body);
+      const job = await Job.create(req.body);
+      console.log(job)
     return res.status(200).send(job);
   } catch (error) {
     return res.status(500).send({ message: error.message });
